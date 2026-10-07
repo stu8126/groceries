@@ -28,6 +28,7 @@ const INVENTORY = [
  */
 function getIds(items) {
   // TODO
+  return items.map((item) => item.id);
 }
 
 /**
@@ -36,6 +37,7 @@ function getIds(items) {
  */
 function getCategories(items) {
   // TODO
+  return items.map((item) => item.category);
 }
 
 /**
@@ -49,6 +51,7 @@ function getCategories(items) {
  */
 function getSkus(items) {
   // TODO
+  return items.map((item) => `${item.id}#${item.name}#${item.name.length}`);
 }
 
 /**
@@ -57,6 +60,7 @@ function getSkus(items) {
  */
 function getFruits(items) {
   // TODO
+  return items.filter((item) => item.category === "fruit");
 }
 
 /**
@@ -66,6 +70,7 @@ function getFruits(items) {
  */
 function getItemsByCategory(items, category) {
   // TODO
+  return items.filter((item) => item.category === category);
 }
 
 /**
@@ -75,6 +80,7 @@ function getItemsByCategory(items, category) {
  */
 function getCheapItems(items) {
   // TODO
+  return items.filter((item) => item.price <= 2.5);
 }
 
 /**
@@ -83,6 +89,7 @@ function getCheapItems(items) {
  */
 function countItems(items) {
   // TODO
+  return items.reduce((count, item) => count + item.quantity, 0);
 }
 
 /**
@@ -91,6 +98,7 @@ function countItems(items) {
  */
 function getTotalCost(items) {
   // TODO
+  return items.reduce((total, item) => total + item.price * item.quantity, 0);
 }
 
 /**
@@ -99,4 +107,7 @@ function getTotalCost(items) {
  */
 function getMostExpensiveItem(items) {
   // TODO
+  return items.reduce((mostExpensive, item) =>
+    item.price > mostExpensive.price ? item : mostExpensive,
+  );
 }
